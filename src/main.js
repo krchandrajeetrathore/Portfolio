@@ -31,17 +31,15 @@ for (let i = 0; i < N; i++) {
 const nodePos = new Float32Array(N * 3)
 const nodeGeo = new THREE.BufferGeometry()
 nodeGeo.setAttribute('position', new THREE.BufferAttribute(nodePos, 3))
-const points = new THREE.Points(nodeGeo, new THREE.PointsMaterial({ color: 0x00ffd0, size: 0.09 }))
-scene.add(points)
+scene.add(new THREE.Points(nodeGeo, new THREE.PointsMaterial({ color: 0x00ffd0, size: 0.09 })))
 
 const linePos = new Float32Array(N * N * 6)
 const lineGeo = new THREE.BufferGeometry()
 lineGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3))
-const lines = new THREE.LineSegments(
+scene.add(new THREE.LineSegments(
   lineGeo,
   new THREE.LineBasicMaterial({ color: 0xb061ff, transparent: true, opacity: 0.3 })
-)
-scene.add(lines)
+))
 
 function updateNetwork() {
   let v = 0
@@ -97,9 +95,9 @@ gsap.utils.toArray('.skill-box, .card').forEach((box) => {
   gsap.from(box, { x: -100, opacity: 0, duration: 1, ease: 'power3.out', clearProps: 'transform',
     scrollTrigger: { trigger: box, start: 'top 88%' } })
 })
-gsap.from('#about p', { y: 30, opacity: 0, duration: 0.9,
+gsap.from('.about-text', { y: 30, opacity: 0, duration: 0.9,
   scrollTrigger: { trigger: '#about', start: 'top 75%' } })
-gsap.from('#contact p.open, .contact-links a', { y: 30, opacity: 0, duration: 0.8, stagger: 0.15,
+gsap.from('#contact p.open, .tile', { y: 30, opacity: 0, duration: 0.8, stagger: 0.15, clearProps: 'transform',
   scrollTrigger: { trigger: '#contact', start: 'top 70%' } })
 
 addEventListener('resize', () => {
