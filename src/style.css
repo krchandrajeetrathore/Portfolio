@@ -186,3 +186,31 @@ h3 { font-size: 2.4rem; margin-bottom: 20px; color: #b061ff; }
   .contact-links a { font-size: .95rem; }
   .skill-box, .card { padding: 20px; }
 }
+
+.skill-box.server { padding: 0; overflow: hidden; background: rgba(8, 12, 22, .85); border-color: rgba(0, 255, 208, .35); }
+.server-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 18px;
+  background: rgba(0, 255, 208, .08);
+  border-bottom: 1px solid rgba(0, 255, 208, .25);
+  font-family: 'Courier New', monospace; font-size: .85rem; letter-spacing: 1px;
+}
+.led { width: 10px; height: 10px; border-radius: 50%; background: #00ff6a; box-shadow: 0 0 8px #00ff6a; animation: blink 1.6s infinite; }
+.led.l2 { background: #b061ff; box-shadow: 0 0 8px #b061ff; animation-delay: .8s; }
+.srv-name { color: #e8e8f5; }
+.status { margin-left: auto; color: #00ff6a; }
+.srv-body { padding: 22px 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+.srv-body span {
+  font-family: 'Courier New', monospace; font-size: .95rem;
+  padding: 6px 14px; border-radius: 6px;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(0, 255, 208, .25);
+  color: #00ffd0;
+}
+.srv-body span::before { content: '> '; color: #b061ff; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+
+@media (max-width: 600px) {
+  .server-head { font-size: .7rem; padding: 10px 12px; }
+  .srv-body { padding: 16px 12px; }
+}
