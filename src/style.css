@@ -169,7 +169,7 @@ h3 { font-size: 2.4rem; margin-bottom: 20px; color: #b061ff; }
   .skill-box::before, .card::before { left: -26px; width: 26px; }
   .skill-box::after, .card::after { left: -31px; }
 }
-/* ---------- MOBILE FIXES ---------- */
+
 @media (max-width: 600px) {
   nav { padding: 14px 5%; flex-direction: column; align-items: center; gap: 8px; }
   nav .logo { font-size: 1rem; letter-spacing: 0; }
