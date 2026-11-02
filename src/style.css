@@ -214,3 +214,30 @@ h3 { font-size: 2.4rem; margin-bottom: 20px; color: #b061ff; }
   .server-head { font-size: .7rem; padding: 10px 12px; }
   .srv-body { padding: 16px 12px; }
 }
+
+.skill-box.cert { display: flex; align-items: center; gap: 22px; }
+.cert-badge {
+  flex-shrink: 0;
+  width: 78px; height: 78px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Courier New', monospace; font-weight: 700; font-size: 1.1rem;
+  color: #07070f;
+  background: linear-gradient(135deg, #00ffd0, #b061ff);
+  box-shadow: 0 0 25px rgba(0, 255, 208, .4);
+  border: 3px solid rgba(255, 255, 255, .25);
+}
+.cert-info { flex: 1; }
+.cert-info h4 { margin-bottom: 6px; }
+.cert-info p { margin-bottom: 12px; }
+.cert-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.verified {
+  font-family: 'Courier New', monospace; font-size: .8rem; letter-spacing: 1px;
+  color: #00ff6a; padding: 4px 10px; border-radius: 20px;
+  border: 1px solid rgba(0, 255, 106, .4); background: rgba(0, 255, 106, .08);
+}
+
+@media (max-width: 600px) {
+  .skill-box.cert { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .cert-badge { width: 64px; height: 64px; font-size: .95rem; }
+  .cert-foot { width: 100%; }
+}
