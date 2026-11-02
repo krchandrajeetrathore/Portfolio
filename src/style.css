@@ -75,14 +75,7 @@ h3 { font-size: 2.4rem; margin-bottom: 20px; color: #b061ff; }
 }
 .btn:hover { background: #00ffd0; color: #07070f; box-shadow: 0 0 25px #00ffd0; }
 
-/* ---------- ABOUT (simple) ---------- */
-.about-text {
-  max-width: 700px; font-size: 1.15rem; line-height: 1.8;
-  opacity: .9; padding-left: 20px;
-  border-left: 3px solid #00ffd0;
-}
-
-/* ---------- TREE LAYOUT (Skills, Certifications, Projects) ---------- */
+/* ---------- TREE LAYOUT ---------- */
 .skill-grid, .cards {
   display: grid;
   grid-template-columns: 1fr;
@@ -107,7 +100,7 @@ h3 { font-size: 2.4rem; margin-bottom: 20px; color: #b061ff; }
   transition: transform .3s, border-color .3s, box-shadow .3s;
 }
 .skill-box { border: 1px solid rgba(176, 97, 255, .3); }
-.card { border: 1px solid rgba(255, 255, 255, .1); }
+.card { border: 1px solid rgba(255, 255, 255, .1); backdrop-filter: blur(8px); }
 
 .skill-box::before, .card::before {
   content: '';
@@ -131,9 +124,11 @@ h3 { font-size: 2.4rem; margin-bottom: 20px; color: #b061ff; }
 
 .skill-box h4 { font-size: 1.3rem; margin-bottom: 10px; color: #00ffd0; }
 .skill-box p { opacity: .85; line-height: 1.7; margin-bottom: 10px; }
-.skill-box a { color: #00ffd0; text-decoration: none; width: fit-content; }
+.skill-box a, .card a { color: #00ffd0; text-decoration: none; width: fit-content; }
+.card h4 { margin-bottom: 10px; font-size: 1.2rem; }
+.card p { opacity: .75; margin-bottom: 14px; }
 
-/* ---------- SERVER RACK (Skills) ---------- */
+/* ---------- SERVER RACK SKILLS ---------- */
 .skill-box.server { padding: 0; overflow: hidden; background: rgba(8, 12, 22, .92); border-color: rgba(0, 255, 208, .35); }
 .server-head {
   display: flex; align-items: center; gap: 10px;
@@ -179,7 +174,7 @@ h3 { font-size: 2.4rem; margin-bottom: 20px; color: #b061ff; }
   border: 1px solid rgba(0, 255, 106, .4); background: rgba(0, 255, 106, .08);
 }
 
-/* ---------- TERMINAL (Projects only) ---------- */
+/* ---------- TERMINAL CARDS (Projects, About, Contact) ---------- */
 .card.terminal { padding: 0; overflow: hidden; background: rgba(6, 8, 16, .95); border-color: rgba(0, 255, 208, .3); }
 .term-head {
   display: flex; align-items: center; gap: 8px;
@@ -193,13 +188,14 @@ h3 { font-size: 2.4rem; margin-bottom: 20px; color: #b061ff; }
 .dot.g { background: #27c93f; }
 .term-title { margin-left: 10px; font-family: 'Courier New', monospace; font-size: .85rem; color: #9aa0b8; }
 .term-body { padding: 22px 24px; font-family: 'Courier New', monospace; }
-.term-body .cmd { color: #e8e8f5; margin-bottom: 6px; }
+.term-body .cmd { color: #e8e8f5; opacity: 1; margin-bottom: 6px; }
 .term-body .cmd b { color: #00ff6a; margin-right: 6px; }
-.term-body .out { color: #9aa0b8; margin-bottom: 18px; line-height: 1.6; }
+.term-body .out { color: #9aa0b8; opacity: 1; margin-bottom: 18px; line-height: 1.6; }
+.term-body .tech { margin-bottom: 18px; }
 .term-body a { color: #00ffd0; text-decoration: none; }
 .term-body a:hover { text-shadow: 0 0 10px #00ffd0; }
 
-.tech { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.tech { display: flex; flex-wrap: wrap; gap: 8px; }
 .tech span {
   font-family: 'Courier New', monospace; font-size: .8rem;
   padding: 4px 10px; border-radius: 6px;
@@ -207,33 +203,37 @@ h3 { font-size: 2.4rem; margin-bottom: 20px; color: #b061ff; }
   border: 1px solid rgba(176, 97, 255, .35);
 }
 
-/* ---------- CONTACT TILES ---------- */
+/* ---------- ABOUT + CONTACT ---------- */
+.about-term { max-width: 800px; }
+.about-term::before, .about-term::after,
+.contact-term::before, .contact-term::after { display: none; }
+.about-term:hover, .contact-term:hover { transform: none; }
+
+#about .term-body p, #contact .term-body p { max-width: none; opacity: 1; line-height: 1.6; }
+#about .term-body .out { margin-bottom: 18px; }
+#contact .term-body .out { margin-bottom: 14px; }
+
 #contact p.open {
-  font-size: 2rem; font-weight: 600; color: #e8e8f5;
-  max-width: 700px; margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #e8e8f5;
+  opacity: 1;
+  max-width: 700px;
+  margin-bottom: 10px;
 }
-.contact-tiles {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 20px; max-width: 800px; margin-top: 24px;
-}
-.tile {
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  gap: 8px; padding: 30px 20px; border-radius: 20px;
+.contact-term { max-width: 700px; margin-top: 20px; }
+.ok { color: #00ff6a; }
+
+.contact-links { display: flex; flex-wrap: wrap; gap: 56px; margin-top: 20px; }
+.contact-term .contact-links { margin-top: 6px; }
+.contact-links a {
+  display: flex; align-items: center; gap: 10px;
   color: #e8e8f5; text-decoration: none;
-  background: rgba(14, 14, 24, .92);
-  border: 1px solid rgba(176, 97, 255, .3);
-  transition: transform .3s, border-color .3s, box-shadow .3s;
+  transition: color .3s, transform .3s;
 }
-.tile .ico {
-  width: 60px; height: 60px; border-radius: 50%;
-  display: grid; place-items: center; margin-bottom: 6px;
-  color: #07070f; background: linear-gradient(135deg, #00ffd0, #b061ff);
-  box-shadow: 0 0 20px rgba(0, 255, 208, .35);
-}
-.tile svg { width: 28px; height: 28px; }
-.tile strong { font-size: 1.15rem; }
-.tile small { opacity: .65; word-break: break-all; }
-.tile:hover { transform: translateY(-8px); border-color: #00ffd0; box-shadow: 0 0 30px rgba(0, 255, 208, .25); }
+.contact-links svg { width: 22px; height: 22px; flex-shrink: 0; }
+.contact-links a:hover { color: #00ffd0; transform: translateY(-3px); }
+.contact-links a:hover svg { filter: drop-shadow(0 0 8px #00ffd0); }
 
 /* ---------- MOBILE ---------- */
 @media (max-width: 800px) {
@@ -252,8 +252,11 @@ h3 { font-size: 2.4rem; margin-bottom: 20px; color: #b061ff; }
   #hero { padding-top: 130px; }
   #hero h1 { font-size: 2.4rem; }
   #hero h2 { font-size: 1.3rem; }
+
   h3 { font-size: 2rem; }
   #contact p.open { font-size: 1.5rem; }
+  .contact-links { gap: 22px; }
+  .contact-links a { font-size: .95rem; }
 
   .skill-grid, .cards { padding-left: 36px; }
   .skill-grid::before, .cards::before { left: 10px; }
