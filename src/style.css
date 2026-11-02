@@ -242,3 +242,29 @@ h3 { font-size: 2.4rem; margin-bottom: 20px; color: #b061ff; }
   .cert-foot { width: 100%; }
 }
 .skill-box, .card { background: rgba(14, 14, 24, .92); }
+
+
+.card.terminal { padding: 0; overflow: hidden; background: rgba(6, 8, 16, .95); border-color: rgba(0, 255, 208, .3); }
+.term-head {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, .06);
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.r { background: #ff5f56; }
+.dot.y { background: #ffbd2e; }
+.dot.g { background: #27c93f; }
+.term-title { margin-left: 10px; font-family: 'Courier New', monospace; font-size: .85rem; color: #9aa0b8; }
+.term-body { padding: 22px 24px; font-family: 'Courier New', monospace; }
+.term-body .cmd { color: #e8e8f5; opacity: 1; margin-bottom: 6px; }
+.term-body .cmd b { color: #00ff6a; margin-right: 6px; }
+.term-body .out { color: #9aa0b8; opacity: 1; margin-bottom: 18px; line-height: 1.6; }
+.term-body .tech { margin-bottom: 18px; }
+.term-body a { color: #00ffd0; text-decoration: none; }
+.term-body a:hover { text-shadow: 0 0 10px #00ffd0; }
+
+@media (max-width: 600px) {
+  .term-body { padding: 16px; }
+  .term-title { font-size: .75rem; }
+}
