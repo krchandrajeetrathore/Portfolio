@@ -1,6 +1,8 @@
 import './style.css'
 import * as THREE from 'three'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const canvas = document.querySelector('#bg')
 const scene = new THREE.Scene()
@@ -37,8 +39,34 @@ function animate() {
 }
 animate()
 
+
 gsap.from('.hero-text > *', { y: 40, opacity: 0, duration: 1, stagger: 0.15, delay: 0.3 })
 gsap.from('.me', { scale: 0.6, opacity: 0, duration: 1.2, delay: 0.5 })
+
+
+gsap.utils.toArray('h3').forEach((h) => {
+  gsap.from(h, {
+    y: 40, opacity: 0, duration: 0.8, ease: 'power3.out',
+    scrollTrigger: { trigger: h, start: 'top 85%' }
+  })
+})
+
+gsap.utils.toArray('.skill-box, .card').forEach((box) => {
+  gsap.from(box, {
+    x: -60, opacity: 0, duration: 0.8, ease: 'power3.out', clearProps: 'transform',
+    scrollTrigger: { trigger: box, start: 'top 88%' }
+  })
+})
+
+gsap.from('#about p', {
+  y: 30, opacity: 0, duration: 0.9,
+  scrollTrigger: { trigger: '#about', start: 'top 75%' }
+})
+gsap.from('#contact p.open, .contact-links a', {
+  y: 30, opacity: 0, duration: 0.8, stagger: 0.15,
+  scrollTrigger: { trigger: '#contact', start: 'top 70%' }
+})
+
 
 addEventListener('resize', () => {
   camera.aspect = innerWidth / innerHeight
